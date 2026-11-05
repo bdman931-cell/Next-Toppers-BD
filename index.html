@@ -75,4 +75,46 @@ section{padding:58px 0}.head{text-align:center;margin-bottom:26px}.head h2{color
 
   <p id="loginMessage" style="text-align:center;"></p>
 </section>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDcQEy-fYnAcR6j1njrdGMug30LjhD6R48",
+  authDomain: "next-toppers-bd.firebaseapp.com",
+  projectId: "next-toppers-bd",
+  storageBucket: "next-toppers-bd.firebasestorage.app",
+  messagingSenderId: "995601883142",
+  appId: "1:995601883142:web:3c48a718fe7f6a8c17a387"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const message = document.getElementById("loginMessage");
+
+  message.textContent = "Logging in...";
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    message.textContent = "Login successful!";
+    message.style.color = "green";
+  } catch (error) {
+    message.textContent = "Login failed: " + error.message;
+    message.style.color = "red";
+  }
+});
+</script>
 </body></html>
