@@ -25,4 +25,54 @@ section{padding:58px 0}.head{text-align:center;margin-bottom:26px}.head h2{color
 <section id="admission"><div class="wrap"><div class="head"><h2>Admission & Contact</h2><p>কোর্সে ভর্তি বা তথ্য জানতে</p></div><div class="form"><p>আসল আবেদন গ্রহণের জন্য এখানে তোমার Google Forms link যুক্ত করতে হবে।</p><a class="btn" href="https://forms.google.com/" target="_blank" rel="noopener">Google Form তৈরি করো</a><div class="note">এই starter website নিজে কোনো student data জমা করে না। অপ্রয়োজনীয় ব্যক্তিগত তথ্য বা password সংগ্রহ কোরো না।</div></div></div></section>
 <section class="alt" id="about"><div class="wrap"><div class="head"><h2>আমাদের সম্পর্কে</h2><p>পড়াতে ভালো লাগে, তাই পড়াই।</p></div><div class="card" style="max-width:760px;margin:auto;text-align:center"><h3>Next Toppers BD</h3><p>সহজ ভাষায় বিষয়ভিত্তিক ক্লাস, নোটস ও অনুশীলনের মাধ্যমে শিক্ষার্থীদের শেখার সুযোগ তৈরি করাই আমাদের লক্ষ্য।</p></div></div></section></main>
 <footer><div class="wrap"><b>NEXT TOPPERS BD</b><br><small>তুমিই হবে দেশের ভবিষ্যৎ • Learn • Practice • Succeed</small><p><small>এখানে তোমার official email, Facebook ও YouTube link যোগ করো।</small></p><small>© <span id="yr"></span> Next Toppers BD</small></div></footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear()</script></body></html>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+
+<!-- Next Toppers BD Student Login -->
+<section id="student-login" style="
+  max-width:400px;
+  margin:40px auto;
+  padding:25px;
+  background:#ffffff;
+  border-radius:15px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);
+  font-family:Arial,sans-serif;
+">
+  <h2 style="text-align:center;color:#173b72;">
+    Next Toppers BD
+  </h2>
+
+  <h3 style="text-align:center;">Student Login</h3>
+
+  <form id="loginForm">
+    <input
+      id="email"
+      type="email"
+      placeholder="Enter your email"
+      required
+      style="width:100%;padding:13px;margin:10px 0;box-sizing:border-box;"
+    >
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Enter your password"
+      required
+      style="width:100%;padding:13px;margin:10px 0;box-sizing:border-box;"
+    >
+
+    <button type="submit" style="
+      width:100%;
+      padding:13px;
+      background:#173b72;
+      color:white;
+      border:0;
+      border-radius:7px;
+      cursor:pointer;
+    ">
+      Login
+    </button>
+  </form>
+
+  <p id="loginMessage" style="text-align:center;"></p>
+</section>
+</body></html>
