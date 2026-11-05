@@ -158,6 +158,50 @@ const db = getFirestore(app);
   
 const loginForm = document.getElementById("loginForm");
 
+// Student Registration
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("studentName").value.trim();
+  const email = document.getElementById("studentEmail").value.trim();
+  const phone = document.getElementById("studentPhone").value.trim();
+  const password = document.getElementById("studentPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const message = document.getElementById("registerMessage");
+
+  if (password !== confirmPassword) {
+    message.textContent = "Passwords do not match!";
+    return;
+  }
+
+  try {
+    message.textContent = "Creating account...";
+
+    const result = await createUserWithEmailAndPassword(
+      auth, email, password
+    );
+
+    const studentID = "NTD-" + result.user.uid.slice(0, 8).toUpperCase();
+
+    await setDoc(doc(db, "students", result.user.uid), {
+      studentID: studentID,
+      name: name,
+      email: email,
+      phone: phone,
+      createdAt: new Date().toISOString()
+    });
+
+    message.style.color = "green";
+    message.textContent = "Registration successful! Student ID: " + studentID;
+
+  } catch (error) {
+    message.style.color = "red";
+    message.textContent = "Registration failed: " + error.message;
+  }
+});
+
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
